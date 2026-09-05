@@ -1,6 +1,14 @@
 # PickYourBerry
 
-sources:
+To run Backend server:
+1.npm install
+2.setup environmental variables
+3.npm run migrate up
+4.npm run dev
+
+
+
+sources for data:
 
   - name: DoPT
     organization: Department of Personnel & Training
