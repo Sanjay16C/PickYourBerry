@@ -1,6 +1,20 @@
 import { useNavigate } from "react-router-dom";
+import api from "../api/axios";
+import { useState } from "react";
 function Login() {
     const navigate= useNavigate();
+    const [email,setEmail] = useState("");
+    const [password,setPass] = useState("");
+    const handleLogin = async(e : React.SubmitEvent) =>{
+      e.preventDefault();
+      try {
+        const response = await api.post("/auth/login",{email,password});
+        localStorage.setItem("accessToken",response.data.accessToken);
+        navigate("/home");
+      } catch (error) {
+        console.error("Login failed:", error);
+      }
+    }
   return (
     <div className="auth-page">
       <div className="auth-card">
@@ -23,13 +37,14 @@ function Login() {
           </h3>
         </div>
 
-        <form>
+        <form onSubmit={handleLogin}>
           <div className="form-group">
             <label htmlFor="login-email">Email</label>
             <input
               id="login-email"
               type="email"
               placeholder="Enter your email"
+              onChange={(e)=>setEmail(e.target.value)}
             />
           </div>
 
@@ -39,6 +54,7 @@ function Login() {
               id="login-password"
               type="password"
               placeholder="Enter your password"
+              onChange={(e)=>setPass(e.target.value)}
             />
           </div>
 
