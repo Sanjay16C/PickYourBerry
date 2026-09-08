@@ -22,24 +22,30 @@ const Navbar = ({sidebarOn,setSidebarOn} : NavbarProps) => {
                 }}
             >
                 <button 
+                    style={{
+                        border:"none",
+                        background:"transparent"
+                    }}
                     onClick={()=>{
                         setSidebarOn(!sidebarOn);
                         console.log(!sidebarOn);
                     }
+                    
                 }
                 >
                     <div className="ham-btn-img"
                         style={{
-                            maxWidth:"100%",
-                            height:"100%",
-                            objectFit:"contain"
+                           padding:"0",
+                           border:"none",
+                           background:"transparent",
+                           lineHeight:"0"
                         }}
                     >
                         <img src={ham} alt={"Toggle"}
                             style={{
-                                maxWidth:"5%",
+                                display:"block",
                                 height:"auto",
-                                background:"transparent",
+                                width:"min(8vw,32px)",
                                 border:"none"
                             }}
                         />
