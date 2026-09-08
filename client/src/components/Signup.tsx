@@ -1,6 +1,38 @@
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {useState} from "react";
+import api from "../api/axios";
+
 function Signup() {
-  const navigate= useNavigate()
+  const navigate = useNavigate();
+
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSignup = async (e: React.SubmitEvent) => {
+    e.preventDefault();
+
+    if (password !== confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    try {
+      await api.post("/auth/signup", {
+        username,
+        email,
+        password,
+      });
+
+      alert("Account created successfully!");
+      navigate("/");
+    } catch (error) {
+      console.error("Signup failed:", error);
+      alert("Signup failed. Please try again.");
+    }
+  };
+
   return (
     <div className="auth-page">
       <div className="auth-card">
@@ -23,13 +55,15 @@ function Signup() {
           </h3>
         </div>
 
-        <form>
+        <form onSubmit={handleSignup}>
           <div className="form-group">
             <label htmlFor="signup-name">Full Name</label>
             <input
               id="signup-name"
               type="text"
               placeholder="Enter your full name"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
 
@@ -39,6 +73,8 @@ function Signup() {
               id="signup-email"
               type="email"
               placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
 
@@ -48,6 +84,8 @@ function Signup() {
               id="signup-password"
               type="password"
               placeholder="Create a password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
 
@@ -59,6 +97,8 @@ function Signup() {
               id="signup-confirm-password"
               type="password"
               placeholder="Confirm your password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
 
@@ -73,10 +113,11 @@ function Signup() {
 
         <div className="account-message">
           <p>Already have an account?</p>
+
           <button
             className="secondary-button"
             type="button"
-            onClick={()=> navigate("/")}
+            onClick={() => navigate("/")}
           >
             Login
           </button>
