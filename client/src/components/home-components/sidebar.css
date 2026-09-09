@@ -1,0 +1,26 @@
+.sidebar{
+    background-color: rgb(214, 213, 213);
+    height: 100dvh;
+    width: 20dvh;
+    padding: 30px 0px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: space-around;
+    width: 100%;
+    gap: 24px;
+}
+
+.list button{
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+}
+
+.list button:hover{
+    border: 1px solid black;
+    
+}

@@ -1,4 +1,5 @@
 import ham from "../../assets/ham.png";
+import "./navbar.css";
 
 interface NavbarProps{
     sidebarOn : boolean,
@@ -7,25 +8,9 @@ interface NavbarProps{
 
 const Navbar = ({sidebarOn,setSidebarOn} : NavbarProps) => {
     return ( 
-        <div className="navbar"
-            style={{
-                display:"flex",
-                flexDirection:"row",
-                alignItems:"center",
-                justifyContent:"space-between"
-            }}
-        >
-            <div className="left-navbar"
-                style={{
-                    display:"flex",
-                    flexDirection:"row"
-                }}
-            >
-                <button 
-                    style={{
-                        border:"none",
-                        background:"transparent"
-                    }}
+        <div className="navbar">
+            <div className="left-navbar">
+                <button className="navbar-menu-button"
                     onClick={()=>{
                         setSidebarOn(!sidebarOn);
                         console.log(!sidebarOn);
@@ -33,22 +18,8 @@ const Navbar = ({sidebarOn,setSidebarOn} : NavbarProps) => {
                     
                 }
                 >
-                    <div className="ham-btn-img"
-                        style={{
-                           padding:"0",
-                           border:"none",
-                           background:"transparent",
-                           lineHeight:"0"
-                        }}
-                    >
-                        <img src={ham} alt={"Toggle"}
-                            style={{
-                                display:"block",
-                                height:"auto",
-                                width:"min(8vw,32px)",
-                                border:"none"
-                            }}
-                        />
+                    <div className="ham-btn-img">
+                        <img src={ham} alt={"Toggle"} />
                     </div>
                     
                 </button>

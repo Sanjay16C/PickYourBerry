@@ -9,7 +9,9 @@ const Home = () => {
         <div className="home"
             style={{
                 display:"flex",
-                flexDirection:"column"
+                flexDirection:"column",
+                width:"100%",
+                height:"100%"
             }}
         >
             

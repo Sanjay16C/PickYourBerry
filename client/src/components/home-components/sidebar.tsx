@@ -1,13 +1,9 @@
+import "./sidebar.css";
 
 const Sidebar = () => {
     return ( 
     <div className="sidebar">
-        <div className="list"
-        style={{
-            display: "flex",
-            flexDirection: "column"
-        }}
-        >
+        <div className="list">
             <button>Chat</button>
             <button>Documents</button>
             <button>Settings</button>

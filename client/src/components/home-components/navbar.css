@@ -1,0 +1,31 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(214, 213, 213);
+    padding: 10px;
+}
+
+.left-navbar {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-menu-button,
+.ham-btn-img {
+    border: none;
+    background: transparent;
+}
+
+.ham-btn-img {
+    padding: 0;
+    line-height: 0;
+}
+
+.ham-btn-img img {
+    display: block;
+    height: auto;
+    width: min(8vw, 32px);
+    border: none;
+}
