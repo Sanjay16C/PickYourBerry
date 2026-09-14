@@ -5,6 +5,21 @@ import Workspace from "./home-components/workspace";
 
 const Home = () => {
     const [sidebarOn,setSidebarOn] = useState(true);
+    const sidebarList = [
+        {
+            name : Chat,
+            path : ""
+        },
+        {
+            name : Documents,
+            path : "documents"
+        },
+        {
+            name : Settings,
+            path: "settings"
+        }
+    ];
+
     return ( 
         <div className="home"
             style={{
@@ -22,7 +37,7 @@ const Home = () => {
                     flexDirection:"row"
                 }}
             >
-                {sidebarOn && <Sidebar/>}
+                {sidebarOn && <Sidebar />}
                 <Workspace/>
             </div>
             
