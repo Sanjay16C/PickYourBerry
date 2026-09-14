@@ -1,0 +1,11 @@
+$kind: http-request
+name: Login
+order: 2000
+method: POST
+url: 'http://localhost:8000/auth/login'
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: '{"email":"srivathsan@gmail.com","password":"password"}'

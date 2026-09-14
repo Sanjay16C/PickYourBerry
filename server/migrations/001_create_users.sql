@@ -3,7 +3,7 @@ CREATE TABLE users(
     email VARCHAR(25) NOT NULL UNIQUE,
     password_hash TEXT NOT NULL,
     username VARCHAR(35) NOT NULL,
+    profile JSONB,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
-

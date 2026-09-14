@@ -1,0 +1,11 @@
+$kind: http-request
+name: Signup
+order: 1000
+method: POST
+url: 'http://localhost:8000/auth/signup'
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: '{"username":"srivathsan","email":"srivathsan@gmail.com","password":"password"}'

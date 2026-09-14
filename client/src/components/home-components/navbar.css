@@ -10,12 +10,19 @@
 .left-navbar {
     display: flex;
     flex-direction: row;
+    align-items: center; 
+    gap: 10px;           
 }
 
 .navbar-menu-button,
 .ham-btn-img {
     border: none;
     background: transparent;
+    cursor: pointer; 
+}
+
+.navbar button {
+    cursor: pointer; 
 }
 
 .ham-btn-img {
