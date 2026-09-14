@@ -5,3 +5,6 @@ CREATE TABLE conversations (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+CREATE INDEX idx_conversations_user_updated
+ON conversations(user_id, updated_at);
