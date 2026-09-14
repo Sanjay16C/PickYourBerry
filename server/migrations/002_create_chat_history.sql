@@ -6,5 +6,5 @@ CREATE TABLE chat_messages (
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-CREATE INDEX idx_chat_messages_user_created
-ON chat_messages(user_id, created_at);
+CREATE INDEX idx_chat_messages_conversation_created
+ON chat_messages(conversation_id, created_at);
