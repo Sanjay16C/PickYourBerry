@@ -5,6 +5,21 @@ import Sidebar from "./home-components/sidebar";
 
 const Home = () => {
     const [sidebarOn,setSidebarOn] = useState(true);
+    const sidebarList = [
+        {
+            name : Chat,
+            path : ""
+        },
+        {
+            name : Documents,
+            path : "documents"
+        },
+        {
+            name : Settings,
+            path: "settings"
+        }
+    ];
+
     return ( 
         <div className="home"
             style={{

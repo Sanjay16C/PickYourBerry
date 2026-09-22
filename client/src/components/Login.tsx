@@ -5,12 +5,13 @@ function Login() {
     const navigate= useNavigate();
     const [email,setEmail] = useState("");
     const [password,setPass] = useState("");
+    
     const handleLogin = async(e : React.SubmitEvent) =>{
       e.preventDefault();
       try {
         const response = await api.post("/auth/login",{email,password});
         localStorage.setItem("accessToken",response.data.accessToken);
-        navigate("/home");
+        navigate(`/home/${response.data.id}`);
       } catch (error) {
         console.error("Login failed:", error);
       }
