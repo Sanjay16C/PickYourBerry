@@ -1,21 +1,24 @@
 import { useState } from "react";
+import { NavLink,Outlet,useLocation} from "react-router-dom";
 import Navbar from "./home-components/navbar";
-import Sidebar from "./home-components/sidebar";
-import Workspace from "./home-components/workspace";
+
 
 const Home = () => {
     const [sidebarOn,setSidebarOn] = useState(true);
+    const location = useLocation();
+    const currentPage = location.pathname.split("/")[3] || "chat";
+
     const sidebarList = [
         {
-            name : Chat,
+            name : "Chat",
             path : ""
         },
         {
-            name : Documents,
+            name : "Documents",
             path : "documents"
         },
         {
-            name : Settings,
+            name : "Settings",
             path: "settings"
         }
     ];
@@ -37,8 +40,25 @@ const Home = () => {
                     flexDirection:"row"
                 }}
             >
-                {sidebarOn && <Sidebar />}
-                <Workspace/>
+                <div className="sidebar">
+                    {sidebarOn && sidebarList.map((li)=>{
+                        return (
+                        <NavLink
+                            key={li.name}
+                            to={li.path}
+                            className={ (isActive) =>
+                                isActive ? "sidebarbtn-active" : "sidebarbtn" 
+                            }
+                        >
+                            {li.name}
+                        </NavLink>
+                        )
+                    })}
+                </div>
+                
+                <div className="page-content">
+                    <Outlet/>
+                </div>
             </div>
             
         </div>

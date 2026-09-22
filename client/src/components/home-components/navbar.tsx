@@ -16,7 +16,7 @@ const Navbar = ({sidebarOn,setSidebarOn} : NavbarProps) => {
                         console.log(!sidebarOn);
                     }
                     
-                }
+                }   
                 >
                     <div className="ham-btn-img">
                         <img src={ham} alt={"Toggle"} />
@@ -26,10 +26,7 @@ const Navbar = ({sidebarOn,setSidebarOn} : NavbarProps) => {
                 <h1>PickyourBerry</h1>
             </div>
             
-            <div className="sliding-btn">
-                <button>Chat</button>
-                <button>Voice</button>
-            </div>
+            
             <button>Logout</button>
         </div>
      );
