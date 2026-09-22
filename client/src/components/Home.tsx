@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { NavLink,Outlet,useLocation} from "react-router-dom";
 import Navbar from "./home-components/navbar";
-
+import Sidebar from "./home-components/sidebar";
+import Workspace from "./home-components/workspace";
 
 const Home = () => {
     const [sidebarOn,setSidebarOn] = useState(true);
@@ -40,25 +40,8 @@ const Home = () => {
                     flexDirection:"row"
                 }}
             >
-                <div className="sidebar">
-                    {sidebarOn && sidebarList.map((li)=>{
-                        return (
-                        <NavLink
-                            key={li.name}
-                            to={li.path}
-                            className={ (isActive) =>
-                                isActive ? "sidebarbtn-active" : "sidebarbtn" 
-                            }
-                        >
-                            {li.name}
-                        </NavLink>
-                        )
-                    })}
-                </div>
-                
-                <div className="page-content">
-                    <Outlet/>
-                </div>
+                {sidebarOn && <Sidebar />}
+                <Workspace/>
             </div>
             
         </div>
