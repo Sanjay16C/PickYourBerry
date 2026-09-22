@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 import Navbar from "./home-components/navbar";
 import Sidebar from "./home-components/sidebar";
-import Workspace from "./home-components/workspace";
 
 const Home = () => {
     const [sidebarOn,setSidebarOn] = useState(true);
@@ -23,7 +23,7 @@ const Home = () => {
                 }}
             >
                 {sidebarOn && <Sidebar/>}
-                <Workspace/>
+                <Outlet/>
             </div>
             
         </div>

@@ -1,11 +1,9 @@
 import ham from "../../assets/ham.png";
 import "./navbar.css";
-
 interface NavbarProps{
     sidebarOn : boolean,
     setSidebarOn : (value : boolean) => void
 }
-
 const Navbar = ({sidebarOn,setSidebarOn} : NavbarProps) => {
     return ( 
         <div className="navbar">
@@ -15,7 +13,6 @@ const Navbar = ({sidebarOn,setSidebarOn} : NavbarProps) => {
                         setSidebarOn(!sidebarOn);
                         console.log(!sidebarOn);
                     }
-                    
                 }
                 >
                     <div className="ham-btn-img">
@@ -34,5 +31,4 @@ const Navbar = ({sidebarOn,setSidebarOn} : NavbarProps) => {
         </div>
      );
 }
- 
 export default Navbar;
