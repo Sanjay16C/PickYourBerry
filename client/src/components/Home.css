@@ -1,11 +1,26 @@
 .sidebar{
     background: rgb(214, 213, 213);
+    display: flex;
+    flex-direction: column;
+    height: 91dvh;
 }
 
 .sidebarbtn{
+    border: none;
     background: rgb(214, 213, 213);
+    cursor: pointer;
+    font-size: large;
+    margin: 25px;
+}
+
+.sidebarbtn:hover{
+    border: white;
+    background-color: white;
 }
 
 .sidebarbtn-active{
-    
+    border:white;
+    background-color: rgb(255, 255, 255);
+    margin: 25px;
+    font-size: large;
 }
